@@ -11,7 +11,14 @@ namespace Argo;
 class Package
 {
     /**
-     * Tracking code.
+     * Original, provided tracking code.
+     *
+     * @var string
+     */
+    public $tracking_code_original;
+
+    /**
+     * True tracking code (sans provider prefix/suffix characters).
      *
      * @var string
      */
@@ -40,9 +47,12 @@ class Package
      */
     public static function instance($tracking_code)
     {
+        $tracking_code = preg_replace('/[^A-Z0-9]/i', '', $tracking_code);
+
         $instance = new self();
-        $instance->tracking_code = preg_replace('/[^A-Z0-9]/i', '', $tracking_code);
-        
+        $instance->tracking_code_original = $tracking_code;
+        $instance->tracking_code          = $tracking_code;
+
         return $instance->deduceTrackingCode();
     }
 
@@ -72,6 +82,18 @@ class Package
         }
 
         return $this->provider->code;
+    }
+
+    /**
+     * Gets the tracking code.
+     *
+     * @param bool $return_original Whether or not to return the original or true tracking code.
+     *
+     * @return string
+     */
+    public function trackingCode($return_original = false)
+    {
+        return $return_original ? $this->tracking_code_original : $this->tracking_code;
     }
 
     /**
