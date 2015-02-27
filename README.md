@@ -8,7 +8,7 @@ In [Greek mythology](http://en.wikipedia.org/wiki/Argo), Argo (in Greek, meaning
 Simply provide a tracking number when initializing a new package instance.
 
 ```
-$package = Argo\Package::instance('1Z 3W4 72Y 42 9990 3055');
+$package = Argo\Package::instance('420 90401 9405 5108 9841 6000 5592 67');
 
 print_r($package);
 ```
@@ -18,16 +18,16 @@ Example output:
 ```
 Argo\Package Object
 (
-    [tracking_code] => 1Z3W472Y4299903055
+    [tracking_code] => 9405510898416000559267
     [carrier] => Argo\Carrier Object
         (
-            [code] => ups
-            [name] => UPS
+            [code] => usps
+            [name] => USPS
         )
     [provider] => Argo\Provider Object
         (
-            [code] => ups
-            [name] => UPS
+            [code] => endicia
+            [name] => Endicia
         )
 )
 ```
