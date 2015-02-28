@@ -61,7 +61,7 @@ class Package
      *
      * @return string
      */
-    public function carrierCode()
+    public function getCarrierCode()
     {
         if (!$this->carrier instanceof Carrier) {
             return false;
@@ -75,7 +75,7 @@ class Package
      *
      * @return string
      */
-    public function providerCode()
+    public function getProviderCode()
     {
         if (!$this->provider instanceof Provider) {
             return false;
@@ -91,7 +91,7 @@ class Package
      *
      * @return string
      */
-    public function trackingCode($return_original = false)
+    public function getTrackingCode($return_original = false)
     {
         return $return_original ? $this->tracking_code_original : $this->tracking_code;
     }
