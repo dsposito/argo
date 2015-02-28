@@ -107,7 +107,9 @@ class Package
         $carrier_code  = null;
         $provider_code = null;
 
-        if (preg_match('/^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{3}$/', $tracking_code)) {
+        if (preg_match('/^([0-9]{20})?([0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2})$/', $tracking_code, $matches)) {
+            $this->tracking_code = $matches[2];
+
             $carrier_code = 'fedex';
         }
         else if (preg_match('/^1Z[A-Z0-9]{3}[A-Z0-9]{3}[0-9]{2}[0-9]{4}[0-9]{4}$/i', $tracking_code)) {
