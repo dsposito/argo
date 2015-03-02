@@ -134,7 +134,10 @@ class Package
         $carrier_code  = null;
         $provider_code = null;
 
-        if (preg_match('/^([0-9]{20})?([0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2})$/', $tracking_code, $matches)) {
+        if (preg_match('/^[0-9]{2}[0-9]{4}[0-9]{4}$/', $tracking_code, $matches)) {
+            $carrier_code = 'dhl';
+        }
+        else if (preg_match('/^([0-9]{20})?([0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2})$/', $tracking_code, $matches)) {
             $this->tracking_code = $matches[2];
 
             $carrier_code = 'fedex';
