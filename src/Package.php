@@ -69,6 +69,19 @@ class Package
 
         return $this->carrier->code;
     }
+    /**
+     * Gets this package's carrier name.
+     *
+     * @return string
+     */
+    public function getCarrierName()
+    {
+        if (!$this->carrier instanceof Carrier) {
+            return false;
+        }
+
+        return $this->carrier->name;
+    }
 
     /**
      * Gets this package's provider code.
@@ -82,6 +95,20 @@ class Package
         }
 
         return $this->provider->code;
+    }
+
+    /**
+     * Gets this package's provider name.
+     *
+     * @return string
+     */
+    public function getProviderName()
+    {
+        if (!$this->provider instanceof Provider) {
+            return false;
+        }
+
+        return $this->provider->name;
     }
 
     /**
