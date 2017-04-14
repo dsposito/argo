@@ -10,9 +10,9 @@ class Provider
 	/**
 	 * Supported providers.
 	 */
-    private static $providers = array(
+    private static $providers = [
         'endicia' => 'Endicia',
-    );
+    ];
 
     /**
      * Provider code.

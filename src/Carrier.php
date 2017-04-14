@@ -26,12 +26,12 @@ class Carrier
      * 
      * @var array
      */
-    private static $carriers = array(
+    private static $carriers = [
         'dhl'   => 'DHL',
         'fedex' => 'FedEx',
         'ups'   => 'UPS',
         'usps'  => 'USPS',
-    );
+    ];
 
     /**
      * Initializes the class.
