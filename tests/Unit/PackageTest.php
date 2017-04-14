@@ -49,8 +49,8 @@ class PackageTest extends \PHPUnit_Framework_TestCase
         $tracking_code = '9416 5096 9993 9860 0390 72';
         $package = Package::instance($tracking_code);
 
-        $this->assertEquals($tracking_code, $package->tracking_code_original);
-        $this->assertEquals(str_replace(' ', '', $tracking_code), $package->tracking_code);
+        $this->assertEquals($tracking_code, $package->getTrackingCode(true));
+        $this->assertEquals(str_replace(' ', '', $tracking_code), $package->getTrackingCode());
         $this->assertEquals(Carrier::CODE_USPS, $package->getCarrierCode());
     }
 }
