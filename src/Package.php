@@ -133,10 +133,8 @@ class Package
         if (preg_match('/^[0-9]{2}[0-9]{4}[0-9]{4}$/', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_DHL;
         }
-        else if (preg_match('/^([0-9]{20})?([0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2})$/', $tracking_code, $matches)) {
-            $this->tracking_code = $matches[2];
-
-            $carrier_code = 'fedex';
+        else if (preg_match('/^[1-9]{4}[0-9]{4}[0-9]{4}$/', $tracking_code, $matches)) {
+            $carrier_code = Carrier::CODE_FEDEX;
         }
         else if (preg_match('/^1Z[A-Z0-9]{3}[A-Z0-9]{3}[0-9]{2}[0-9]{4}[0-9]{4}$/i', $tracking_code)) {
             $carrier_code = Carrier::CODE_UPS;
@@ -152,7 +150,7 @@ class Package
         }
 
         if (!empty($carrier_code)) {
-            $this->carrier  = new Carrier($carrier_code);
+            $this->carrier = new Carrier($carrier_code);
             $this->provider = new Provider($provider_code ?: $carrier_code);
         }
 
