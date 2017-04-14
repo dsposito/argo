@@ -16,7 +16,7 @@ class Package
     public $tracking_code_original;
 
     /**
-     * True tracking code (sans provider prefix/suffix characters).
+     * True tracking code (sans formatting, provider prefix/suffix characters).
      *
      * @var string
      */
@@ -45,11 +45,9 @@ class Package
      */
     public static function instance(string $tracking_code): Package
     {
-        $tracking_code = preg_replace('/[^A-Z0-9]/i', '', $tracking_code);
-
         $instance = new self();
         $instance->tracking_code_original = $tracking_code;
-        $instance->tracking_code          = $tracking_code;
+        $instance->tracking_code = preg_replace('/[^A-Z0-9]/i', '', $tracking_code);
 
         return $instance->deduceTrackingCode();
     }
