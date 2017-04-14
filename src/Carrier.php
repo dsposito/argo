@@ -51,11 +51,11 @@ class Carrier
     }
 
     /**
-     * Gets the supported carriers.
+     * Gets all supported carriers.
      *
      * @return array
      */
-    public static function getCarriers(): array
+    public static function getAll(): array
     {
         return self::$carriers;
     }

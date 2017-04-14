@@ -37,7 +37,7 @@ class Provider
      */
     public function __construct(string $code)
     {
-        $providers = array_merge(self::$providers, Carrier::getCarriers());
+        $providers = array_merge(self::$providers, Carrier::getAll());
         if (!array_key_exists($code, $providers)) {
             return false;
         }
