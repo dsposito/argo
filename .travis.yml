@@ -1,0 +1,29 @@
+language: php
+
+php:
+  - '7.0'
+  - '7.1'
+
+# Install packages and create test coverage log directory.
+before_script:
+  - composer install --dev --no-interaction
+  - mkdir -p build/logs
+
+# Check code formatting, run tests and generate test coverage report.
+script:
+  - vendor/bin/phpcs ./src ./tests --extensions=php --standard=PSR2
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+# Submit test coverage report to Coveralls.
+after_success:
+  - vendor/bin/coveralls -v
+
+# Cache composer bits for faster test suite runs.
+cache:
+  directories:
+  - $HOME/.composer/cache
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always
