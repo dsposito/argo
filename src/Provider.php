@@ -7,9 +7,9 @@ namespace Argo;
  */
 class Provider
 {
-	/**
-	 * Supported providers.
-	 */
+    /**
+     * Supported providers.
+     */
     private static $providers = [
         'endicia' => 'Endicia',
     ];
@@ -32,7 +32,7 @@ class Provider
      * Initializes the class.
      *
      * @param string $code The provider code.
-     * 
+     *
      * @return void
      */
     public function __construct($code)

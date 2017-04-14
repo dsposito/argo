@@ -23,7 +23,7 @@ class Carrier
 
     /**
      * Supported carriers.
-     * 
+     *
      * @var array
      */
     private static $carriers = [
@@ -37,7 +37,7 @@ class Carrier
      * Initializes the class.
      *
      * @param string $code The carrier code.
-     * 
+     *
      * @return void
      */
     public function __construct($code)
