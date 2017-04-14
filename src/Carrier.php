@@ -8,6 +8,26 @@ namespace Argo;
 class Carrier
 {
     /**
+     * DHL carrier code.
+     */
+    const CODE_DHL = 'dhl';
+
+    /**
+     * FedEx carrier code.
+     */
+    const CODE_FEDEX = 'fedex';
+
+    /**
+     * UPS carrier code.
+     */
+    const CODE_UPS = 'ups';
+
+    /**
+     * USPS carrier code.
+     */
+    const CODE_USPS = 'usps';
+
+    /**
      * Carrier code.
      *
      * @var string
@@ -27,10 +47,10 @@ class Carrier
      * @var array
      */
     private static $carriers = [
-        'dhl'   => 'DHL',
-        'fedex' => 'FedEx',
-        'ups'   => 'UPS',
-        'usps'  => 'USPS',
+        self::CODE_DHL => 'DHL',
+        self::CODE_FEDEX => 'FedEx',
+        self::CODE_UPS => 'UPS',
+        self::CODE_USPS => 'USPS',
     ];
 
     /**

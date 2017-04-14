@@ -8,10 +8,15 @@ namespace Argo;
 class Provider
 {
     /**
+     * Endicia provider code.
+     */
+    const CODE_ENDICIA = 'endicia';
+
+    /**
      * Supported providers.
      */
     private static $providers = [
-        'endicia' => 'Endicia',
+        self::CODE_ENDICIA => 'Endicia',
     ];
 
     /**
