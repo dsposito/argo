@@ -40,7 +40,7 @@ class Carrier
      *
      * @return void
      */
-    public function __construct($code)
+    public function __construct(string $code)
     {
         if (!array_key_exists($code, self::$carriers)) {
             return false;
@@ -55,7 +55,7 @@ class Carrier
      *
      * @return array
      */
-    public static function getCarriers()
+    public static function getCarriers(): array
     {
         return self::$carriers;
     }

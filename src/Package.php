@@ -5,8 +5,6 @@ namespace Argo;
 /**
  * The primary Argo class.
  * Handles package interactions.
- * 
- * @see https://github.com/dsposito/argo
  */
 class Package
 {
@@ -45,7 +43,7 @@ class Package
      *
      * @return Argo\Package
      */
-    public static function instance($tracking_code)
+    public static function instance(string $tracking_code): Package
     {
         $tracking_code = preg_replace('/[^A-Z0-9]/i', '', $tracking_code);
 
@@ -61,10 +59,10 @@ class Package
      *
      * @return string
      */
-    public function getCarrierCode()
+    public function getCarrierCode(): string
     {
         if (!$this->carrier instanceof Carrier) {
-            return false;
+            return '';
         }
 
         return $this->carrier->code;
@@ -74,10 +72,10 @@ class Package
      *
      * @return string
      */
-    public function getCarrierName()
+    public function getCarrierName(): string
     {
         if (!$this->carrier instanceof Carrier) {
-            return false;
+            return '';
         }
 
         return $this->carrier->name;
@@ -88,10 +86,10 @@ class Package
      *
      * @return string
      */
-    public function getProviderCode()
+    public function getProviderCode(): string
     {
         if (!$this->provider instanceof Provider) {
-            return false;
+            return '';
         }
 
         return $this->provider->code;
@@ -102,10 +100,10 @@ class Package
      *
      * @return string
      */
-    public function getProviderName()
+    public function getProviderName(): string
     {
         if (!$this->provider instanceof Provider) {
-            return false;
+            return '';
         }
 
         return $this->provider->name;
@@ -118,7 +116,7 @@ class Package
      *
      * @return string
      */
-    public function getTrackingCode($return_original = false)
+    public function getTrackingCode(bool $return_original = false): string
     {
         return $return_original ? $this->tracking_code_original : $this->tracking_code;
     }
@@ -126,9 +124,9 @@ class Package
     /**
      * Determines the package's shipping details based on its tracking code.
      *
-     * @return void
+     * @return Argo\Package
      */
-    private function deduceTrackingCode()
+    private function deduceTrackingCode(): Package
     {
         $tracking_code = $this->tracking_code;
         $carrier_code  = null;

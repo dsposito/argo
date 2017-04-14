@@ -35,7 +35,7 @@ class Provider
      *
      * @return void
      */
-    public function __construct($code)
+    public function __construct(string $code)
     {
         $providers = array_merge(self::$providers, Carrier::getCarriers());
         if (!array_key_exists($code, $providers)) {
@@ -51,7 +51,7 @@ class Provider
      *
      * @return array
      */
-    public static function getProviders()
+    public static function getProviders(): array
     {
         return self::$providers;
     }
