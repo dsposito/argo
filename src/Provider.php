@@ -52,11 +52,11 @@ class Provider
     }
 
     /**
-     * Gets the supported providers.
+     * Gets all supported providers.
      *
      * @return array
      */
-    public static function getProviders(): array
+    public static function getAll(): array
     {
         return self::$providers;
     }
