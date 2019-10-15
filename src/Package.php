@@ -138,6 +138,8 @@ class Package
             $carrier_code = Carrier::CODE_UPS;
         } elseif (preg_match('/^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2}$/', $tracking_code)) {
             $carrier_code = Carrier::CODE_USPS;
+        } elseif (preg_match('/^LX[0-9]{8}$/', $tracking_code)) {
+	        $carrier_code = Carrier::CODE_LASER_SHIP;
         } elseif (preg_match(
             '/^420[0-9]{5}([0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2})$/',
             $tracking_code,

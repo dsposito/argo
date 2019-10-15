@@ -27,6 +27,11 @@ class Carrier
      */
     const CODE_USPS = 'usps';
 
+	/**
+	 * LaserShip carrier code.
+	 */
+	const CODE_LASER_SHIP = 'laser_ship';
+
     /**
      * Carrier code.
      *
@@ -51,6 +56,7 @@ class Carrier
         self::CODE_FEDEX => 'FedEx',
         self::CODE_UPS => 'UPS',
         self::CODE_USPS => 'USPS',
+        self::CODE_LASER_SHIP => 'Laser Ship',
     ];
 
     /**
