@@ -27,10 +27,10 @@ class Carrier
      */
     const CODE_USPS = 'usps';
 
-	/**
-	 * LaserShip carrier code.
-	 */
-	const CODE_LASER_SHIP = 'laser_ship';
+    /**
+    * LaserShip carrier code.
+    */
+    const CODE_LASER_SHIP = 'laser_ship';
 
     /**
      * Carrier code.
