@@ -36,6 +36,13 @@ class PackageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Carrier::CODE_USPS, $package->getCarrierCode());
     }
 
+    public function testPackageCarrierIsLaserShip()
+    {
+        $package = Package::instance('LX45346049');
+
+        $this->assertEquals(Carrier::CODE_LASER_SHIP, $package->getCarrierCode());
+    }
+
     public function testPackageProviderIsEndicia()
     {
         $package = Package::instance('420904019401910898416012364585');
