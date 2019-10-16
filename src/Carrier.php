@@ -56,7 +56,7 @@ class Carrier
         self::CODE_FEDEX => 'FedEx',
         self::CODE_UPS => 'UPS',
         self::CODE_USPS => 'USPS',
-        self::CODE_LASER_SHIP => 'Laser Ship',
+        self::CODE_LASER_SHIP => 'LaserShip',
     ];
 
     /**
