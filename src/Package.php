@@ -129,7 +129,6 @@ class Package
      /**
      * Gets the Web URL to open tracking status
      *
-     *
      * @return string
      */
     public function getTrackingUrl(): string
