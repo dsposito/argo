@@ -27,7 +27,7 @@ class Package
      *
      * @var string
      */
-    public $web_link;
+    public $tracking_url;
 
     /**
      * Carrier data.
@@ -132,9 +132,9 @@ class Package
      *
      * @return string
      */
-    public function getTrackingWebURL(): string
+    public function getTrackingUrl(): string
     {
-        return $this->web_link;
+        return $this->tracking_url;
     }
 
     /**
@@ -154,8 +154,7 @@ class Package
             $web_link = "https://www.dhl.com/en/express/tracking.html?AWB=".$matches[0];
         } elseif (preg_match('/^[0-9]{12}$|^[0-9]{15}$/', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_FEDEX;
-            $web_link = "https://www.fedex.com/fedextrack/?tracknumbers=" . $matches[0] .
-                         "&cntry_code=us&language=english";
+            $web_link = "https://www.fedex.com/fedextrack/?tracknumbers=" . $matches[0];
         } elseif (preg_match('/^1Z[A-Z0-9]{3}[A-Z0-9]{3}[0-9]{2}[0-9]{4}[0-9]{4}$/i', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_UPS;
             $web_link = "http://wwwapps.ups.com/WebTracking/track?loc=en_US&trackNums=" . $matches[0] .
@@ -178,7 +177,7 @@ class Package
         }
 
         if (!empty($carrier_code)) {
-            $this->web_link = $web_link;
+            $this->tracking_url = $web_link;
             $this->carrier = new Carrier($carrier_code);
             $this->provider = new Provider($provider_code ?: $carrier_code);
         }
