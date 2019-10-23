@@ -150,20 +150,14 @@ class Package
 
         if (preg_match('/^[0-9]{2}[0-9]{4}[0-9]{4}$/', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_DHL;
-            $web_link = "https://www.dhl.com/en/express/tracking.html?AWB=".$matches[0];
         } elseif (preg_match('/^[0-9]{12}$|^[0-9]{15}$/', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_FEDEX;
-            $web_link = "https://www.fedex.com/fedextrack/?tracknumbers=" . $matches[0];
         } elseif (preg_match('/^1Z[A-Z0-9]{3}[A-Z0-9]{3}[0-9]{2}[0-9]{4}[0-9]{4}$/i', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_UPS;
-            $web_link = "http://wwwapps.ups.com/WebTracking/track?loc=en_US&trackNums=" . $matches[0] .
-                "&track.x=track";
         } elseif (preg_match('/^[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2}$/', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_USPS;
-            $web_link = "https://tools.usps.com/go/TrackConfirmAction_input?qtc_tLabels1=".$matches[0];
         } elseif (preg_match('/^LX[0-9]{8}$/', $tracking_code, $matches)) {
             $carrier_code = Carrier::CODE_LASER_SHIP;
-            $web_link = "https://www.lasership.com/track.php?track_number_input=".$matches[0];
         } elseif (preg_match(
             '/^420[0-9]{5}([0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{2})$/',
             $tracking_code,
@@ -176,7 +170,7 @@ class Package
         }
 
         if (!empty($carrier_code)) {
-            $this->tracking_url = $web_link;
+            $this->tracking_url = Carrier::buildTrackingUrl($carrier_code, $matches[0]);;
             $this->carrier = new Carrier($carrier_code);
             $this->provider = new Provider($provider_code ?: $carrier_code);
         }

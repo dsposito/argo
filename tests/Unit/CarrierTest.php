@@ -13,6 +13,7 @@ class CarrierTest extends \PHPUnit_Framework_TestCase
 
             $this->assertEquals($code, $carrier->code);
             $this->assertEquals($name, $carrier->name);
+            $this->assertNotEmpty($carrier->tracking_url);
         }
     }
 }
