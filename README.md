@@ -1,4 +1,4 @@
-# Argo
+# Argo Local
 [![Build Status](https://travis-ci.org/dsposito/argo.svg?branch=master)](https://travis-ci.org/dsposito/argo)
 [![Coverage Status](https://coveralls.io/repos/github/dsposito/argo/badge.svg?branch=master)](https://coveralls.io/github/dsposito/argo?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/dsposito/argo/v/stable.png)](https://packagist.org/packages/dsposito/argo)
