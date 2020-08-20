@@ -15,9 +15,12 @@ class PackageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Carrier::CODE_DHL, $package->getCarrierCode());
     }
 
-    public function testPackageCarrierIsFedEx()
+    /**
+     * @dataProvider fedexProvider
+     */
+    public function testPackageCarrierIsFedEx($trackingCode)
     {
-        $package = Package::instance('778890188810');
+        $package = Package::instance($trackingCode);
 
         $this->assertEquals(Carrier::CODE_FEDEX, $package->getCarrierCode());
     }
@@ -59,5 +62,13 @@ class PackageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($tracking_code, $package->getTrackingCode(true));
         $this->assertEquals(str_replace(' ', '', $tracking_code), $package->getTrackingCode());
         $this->assertEquals(Carrier::CODE_USPS, $package->getCarrierCode());
+    }
+
+    public function fedexProvider()
+    {
+        return [
+            ['778890188810'],
+            ['999999999999999'],
+        ];
     }
 }
