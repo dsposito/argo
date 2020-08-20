@@ -67,5 +67,4 @@ class PackageTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(Carrier::CODE_ONTRAC, $package->getCarrierCode());
     }
-
 }
