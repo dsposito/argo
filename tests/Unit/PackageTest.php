@@ -60,4 +60,12 @@ class PackageTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(str_replace(' ', '', $tracking_code), $package->getTrackingCode());
         $this->assertEquals(Carrier::CODE_USPS, $package->getCarrierCode());
     }
+
+    public function testPackageCarrierIsOnTrac()
+    {
+        $package = Package::instance('C11954958275942');
+
+        $this->assertEquals(Carrier::CODE_ONTRAC, $package->getCarrierCode());
+    }
+
 }
