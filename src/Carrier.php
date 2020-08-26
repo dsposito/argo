@@ -33,6 +33,11 @@ class Carrier
     const CODE_LASER_SHIP = 'laser_ship';
 
     /**
+     * OnTrac carrier code.
+     */
+    const CODE_ONTRAC = 'ontrac';
+
+    /**
      * Carrier code.
      *
      * @var string
@@ -54,9 +59,10 @@ class Carrier
     private static $carriers = [
         self::CODE_DHL => 'DHL',
         self::CODE_FEDEX => 'FedEx',
+        self::CODE_LASER_SHIP => 'LaserShip',
+        self::CODE_ONTRAC => 'OnTrac',
         self::CODE_UPS => 'UPS',
         self::CODE_USPS => 'USPS',
-        self::CODE_LASER_SHIP => 'LaserShip',
     ];
 
     /**
